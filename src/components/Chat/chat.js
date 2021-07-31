@@ -10,8 +10,6 @@ const Chat=()=>{
     const [msgDisplay,setMsgDisplay]=useState('none');
     const [color,setColor]=useState();
     const [textColor,setTextColor]=useState();
-    const [currentUserData,setCurrentUserData]=useState([])
-    const [userData,setUserData]=useState([])
     const [id,setId]=useState('')
     const [regUser,setRegUser]=useState( axios.get("http://localhost:9000/getusersid").then(res =>
     setRegUser(

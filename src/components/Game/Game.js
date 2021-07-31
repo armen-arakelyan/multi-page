@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const Game = () => {
-  const [spin,setSpin]=useState(0)
   const [spins, setSpins] = useState([{
     spin1: 1,
     spin2: 2,
@@ -59,7 +58,7 @@ const Game = () => {
           }
         }
       }
-    },1500)
+    },1000)
   };
   useEffect(() => {
     randomSpin()
@@ -157,30 +156,24 @@ const Game = () => {
                 <button disabled>Spining...</button>
               ) : (
                 <button
-                  onMouseDown={()=>{
-                    setSpin(405)
-                    randomSpin()
-                  }}
-                  onMouseUp={()=>{
-                    if(spin===405){
-                      document.querySelector('.my1').style.marginTop=spin+'px'
-                      document.querySelector('.my2').style.marginTop=spin+'px'
-                      document.querySelector('.my3').style.marginTop=spin+'px'
+                  onClick={()=>{
+                      document.querySelector('.my1').style.marginTop=405+'px'
+                      document.querySelector('.my2').style.marginTop=405+'px'
+                      document.querySelector('.my3').style.marginTop=405+'px'
                       equalSpins()
-                      setSpin(0)
                       setIsSpin(true)
                       setTimeout(()=>{
-                        document.querySelector('.my1').style.marginTop=0+'px'
-                      document.querySelector('.my2').style.marginTop=0+'px'
-                      document.querySelector('.my3').style.marginTop=0+'px'
+                        document.querySelector('.my1').style.marginTop=-15+'px'
+                      document.querySelector('.my2').style.marginTop=-15+'px'
+                      document.querySelector('.my3').style.marginTop=-15+'px'
                       setIsSpin(false)
                       for(let i=0;i<document.getElementsByTagName('td').length;i++){
                         if(i===1 ||  i===8 ||  i===15){
                           document.getElementsByTagName('td')[i].style.background="white"
                         }
-                      }
-                      },3000)
-                    }
+                      }                      
+                    randomSpin()
+                      },1500)
                   }}
                 >
                   <img src="https://image.flaticon.com/icons/png/512/4767/4767039.png" />
