@@ -78,21 +78,20 @@ app.post('/register',bodyParser,async(req,res)=>{
 
 app.post('/order',bodyParser,(req,res)=>{
     let data=JSON.parse(req.body.orders);
-    data.map(v=>{
-        `Orders: name:${v.name} price:${v.price}<br>`
-    })
-         transporter.sendMail({
+    data.forEach(v => {
+           transporter.sendMail({
             from: '"React Shop 👻" <arakelyan2001@mail.ru>',
             to: "arakelyan2001@mail.ru",
             subject: "Order",
             html: `Name:${req.body.name}<br>
             Contact:${req.body.contact}<br>
             Adress:${req.body.adress}<br>
-            ${JSON.stringify(data)}<br>
+            ${v.name}-${v.price}<br>
             AllPrice:${req.body.myprice}
             `,
           });
-})
+    });
+    })
 
 app.post('/create',bodyParser,async(req,res)=>{
         await carmodel({

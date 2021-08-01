@@ -18,10 +18,8 @@ const Order = () => {
   const orderPost = (data) => {
     axios
       .post("http://localhost:9000/order", data)
-      .then((res) => console.log(res));
-    // setSubmit(!submit)
-    // setOrderBlock('block')
-    console.log(data);
+    setSubmit(!submit)
+    setOrderBlock('flex')
   };
 
   useEffect(() => {

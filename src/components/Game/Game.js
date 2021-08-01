@@ -166,14 +166,16 @@ const Game = () => {
                         document.querySelector('.my1').style.marginTop=-15+'px'
                       document.querySelector('.my2').style.marginTop=-15+'px'
                       document.querySelector('.my3').style.marginTop=-15+'px'
-                      setIsSpin(false)
                       for(let i=0;i<document.getElementsByTagName('td').length;i++){
                         if(i===1 ||  i===8 ||  i===15){
                           document.getElementsByTagName('td')[i].style.background="white"
                         }
                       }                      
-                    randomSpin()
                       },1500)
+                      setTimeout(()=>{
+                        randomSpin()
+                        setIsSpin(false)
+                      },2000)  
                   }}
                 >
                   <img src="https://image.flaticon.com/icons/png/512/4767/4767039.png" />

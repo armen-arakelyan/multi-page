@@ -563,6 +563,20 @@ input:focus {
 .order_page_basket table td {
   font-family: monospace;
 }
+.order_page_basket table thead,tbody{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+}
+.order_page_basket table tbody{
+  flex-direction: column;
+}
+.order_page_basket table tbody tr{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
 .send_order {
   display: flex;
   justify-content: center;
@@ -795,11 +809,12 @@ tbody {
     overflow: hidden;
     min-height: 270px;
 }
-.game_table tbody tr{
-  width: 25%;
-  justify-content: center;
+.game_table tbody tr,td{
+  width: 100%;
   flex-direction: column;
-  display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .my1{
   transition: 0.4s ease;
