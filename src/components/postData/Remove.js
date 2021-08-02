@@ -1,4 +1,4 @@
-import React,{ useEffect, useState,useRef } from 'react';
+import React,{ useEffect, useState } from 'react';
 import axios from 'axios'
 import {useForm} from 'react-hook-form'
 
@@ -6,7 +6,6 @@ const Remove=(props)=>{
     const {register,handleSubmit}=useForm();
     const [cars,setCars]=useState([]);
     const [update,setUpdate]=useState(false);
-    let carRef=useRef(null)
 
     const removeCar=(data)=>{
         axios.post('http://localhost:9000/car_delete',data)
@@ -42,16 +41,10 @@ const Remove=(props)=>{
             <tbody>
            
             {cars.map((v,i)=><tr key={i}>
-                <td>{v.model}</td>
-                <td><button type="submit" className="btn">&#10006;</button>
-                {/* <input type="text" {...register("myid")} defaultValue={v._id}  /> */}
-              
-                <select onClick={(e)=>console.log(e.target.value)} name="myid" value={v._id}>
-                    {cars.map(a=><option value={a._id}></option>)}                             
-                </select> 
-                <button type="submit" formAction="http://localhost:9000/car_delete" >Delete</button>   
-                      
-               
+                <td>{v.model}</td>    
+                <td>
+                <input style={{display:'none'}} type="text" {...register("myid")} defaultValue={v._id}  />
+                    <button type="submit" className="btn">&#10006;</button>             
                 </td>
             </tr>)}
             

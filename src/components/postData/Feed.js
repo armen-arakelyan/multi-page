@@ -2,12 +2,14 @@ import React, { useState,useEffect } from 'react';
 import axios from 'axios'
 import {useForm} from 'react-hook-form'
 import Remove from './Remove';
+import {useHistory} from 'react-router-dom';
  
 const Feed=()=>{
     const {register,handleSubmit,formState: { errors }}=useForm();
     const [create,setCreate]=useState('flex')
     const [deleteCar,setDeleteCar]=useState('none')
     const [feedData,setUsers]=useState([]);
+    const history=useHistory()
 
     useEffect(()=>{
         axios.get('http://localhost:9000/getusersid')
@@ -18,7 +20,6 @@ const Feed=()=>{
 
     const addCar=async data=>{
         await axios.post('http://localhost:9000/create',data)
-        .then(res=>console.log(res))
     }
     return(
         <div>
@@ -36,11 +37,10 @@ const Feed=()=>{
                         setDeleteCar('flex')
                     }}>2</span>
                     </div>
-                <span>{v.name} {v.surname}</span>
                 </div>)}
                 {feedData.length===0?"":
                 <div className="flex_column">
-                <form style={{display:create}} className="feed_car" onSubmit={handleSubmit(addCar)} enctype="multipart/form-data">
+                <form style={{display:create}} className="feed_car" onSubmit={handleSubmit(addCar)}>
                  <input {...register("model",{required:true})} placeholder="Model" />
                  <input {...register("img",{required:true})} placeholder="Image" />
                  <input {...register("speed",{required:true})} placeholder="Speed" />
