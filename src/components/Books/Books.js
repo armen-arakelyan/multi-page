@@ -34,7 +34,7 @@ const Books=()=>{
             <h1>Library Store</h1>
              {img.data.map((v,i)=>{
                  return <div key={i}>
-                     <Cards name={v.author} img={v.download_url} price={+v.id+12} addBook={()=>{
+                     <Cards aos="zoom-in" name={v.author} img={v.download_url} price={+v.id+12} addBook={()=>{
                          dispatch(basketCounter(Number))
                          dispatch(basketOrders([{...Array,name:v.author,price:+v.id+12}]))
                          dispatch(allCounts(+v.id+12))

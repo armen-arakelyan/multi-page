@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 const Cars = () => {
   const [carData, setCarData] = useState([]);
@@ -11,6 +13,9 @@ const Cars = () => {
 
   useEffect(() => {
     getCars();
+    AOS.init({
+      duration:500
+    })
   }, []);
 
   useEffect(() => {
@@ -76,6 +81,7 @@ const Cars = () => {
             href={`/car/${v._id}`}
             style={{ backgroundImage: `url(${v.img})` }}
             className="cars_cards_content"
+            data-aos="fade-down"
           >
             <div className="model_speed">
               <p>Model:{v.model}</p>

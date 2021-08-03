@@ -698,7 +698,6 @@ tbody {
   margin-bottom: 5px;
   border-radius: 5px;
   background-size: 100% 100%;
-  background-attachment: fixed;
 }
 .cars_input {
   justify-content: center;
