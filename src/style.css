@@ -365,6 +365,17 @@ input:focus {
   font-size: 50px;
   cursor: pointer;
 }
+.weather_form{
+  align-items: center;
+  flex-direction: column;
+}
+.weather_form input{
+  background: none;
+  margin-bottom: 5px;
+}
+.weather_form input:focus{
+  border-bottom:1px solid rgb(33, 150, 243);
+}
 .basket {
   display: flex;
   cursor: pointer;
